@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@dinari/api-sdk": "^0.13.0"
+  }
+}
