@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Dinari-inspired palette: deep navy/black with off-white type and warm gold accents */
+  --color-ink-950: #050608;
+  --color-ink-900: #0a0c10;
+  --color-ink-800: #11141a;
+  --color-ink-700: #1a1e26;
+  --color-ink-600: #262b36;
+  --color-ink-500: #3a4150;
+  --color-paper-50: #f6f5ef;
+  --color-paper-100: #ebe9dc;
+  --color-paper-200: #d6d2bd;
+  --color-gold-300: #e7c98c;
+  --color-gold-400: #d4ad58;
+  --color-gold-500: #b88a2a;
+  --color-emerald-400: #4cb78a;
+  --color-rose-400: #d96565;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-ink-950);
+  color: var(--color-paper-50);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle radial spotlight on dark hero areas */
+.hero-spotlight {
+  background:
+    radial-gradient(
+      ellipse at top,
+      color-mix(in oklab, var(--color-gold-400) 8%, transparent) 0%,
+      transparent 60%
+    ),
+    var(--color-ink-950);
+}
+
+.btn-primary {
+  background: var(--color-paper-50);
+  color: var(--color-ink-950);
+  border: 1px solid var(--color-paper-50);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: opacity 120ms ease;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-paper-50);
+  border: 1px solid var(--color-ink-600);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: border-color 120ms ease;
+}
+.btn-ghost:hover { border-color: var(--color-paper-200); }
+
+.card {
+  background: var(--color-ink-900);
+  border: 1px solid var(--color-ink-700);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.input {
+  background: var(--color-ink-800);
+  border: 1px solid var(--color-ink-600);
+  color: var(--color-paper-50);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 120ms ease;
+}
+.input:focus { border-color: var(--color-gold-400); }

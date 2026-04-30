@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.dinari.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(openssl rand *)",
+      "Bash(npx prisma *)",
+      "Bash(DATABASE_URL=\"file:./dev.db\" npx prisma db push --skip-generate)",
+      "Bash(node --env-file=.env.local --input-type=module -e ' *)"
+    ]
+  }
+}

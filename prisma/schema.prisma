@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String   @id @default(cuid())
+  walletAddress   String   @unique
+  entityId        String?  @unique
+  kycStatus       String?
+  primaryAccountId String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  accounts        Account[]
+}
+
+model Account {
+  id           String   @id @default(cuid())
+  dinariId     String   @unique
+  jurisdiction String   @default("BASELINE")
+  walletLinked Boolean  @default(false)
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String
+  createdAt    DateTime @default(now())
+}
